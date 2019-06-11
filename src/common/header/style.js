@@ -78,6 +78,18 @@ export const Addition = styled.div`
 export const SearchWrapper = styled.div`
   float: left;
   position: relative;
+  .slide-enter {
+    transition: all 0.2s ease-out;
+  }
+  .slide-enter-active {
+    width: 240px;
+  }
+  .slide-exit {
+    transition: all 0.2s ease-out;
+  }
+  .slide-exit-active {
+    width: 160px;
+  }
   .iconfont {
     position: absolute;
     right: 5px;
@@ -86,7 +98,6 @@ export const SearchWrapper = styled.div`
     line-height: 30px;
     text-align: center;
     border-radius: 15px;
-    background: grey;
     &.focused {
       background: #777;
       color: #fff;
