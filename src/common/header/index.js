@@ -39,7 +39,6 @@ class Header extends Component {
         );
       }
     }
-
     if (focused || mouseIn) {
       return (
         <SearchInfo
@@ -48,7 +47,17 @@ class Header extends Component {
         >
           <SearchInfoTitle>
             Polular Searches
-            <SearchInfoSwift onClick={() => handleChangePage(page, totalpage)}>
+            <SearchInfoSwift
+              onClick={() => handleChangePage(page, totalpage, this.spinIcon)}
+            >
+              <i
+                ref={icon => {
+                  this.spinIcon = icon;
+                }}
+                className="iconfont spin"
+              >
+                &#xe601;
+              </i>
               Next
             </SearchInfoSwift>
           </SearchInfoTitle>
@@ -80,7 +89,7 @@ class Header extends Component {
                 className={focused ? "focused" : ""}
               />
             </CSSTransition>
-            <i className={focused ? "focused iconfont" : "iconfont"}>
+            <i className={focused ? "focused iconfont zoom" : "iconfont zoom"}>
               &#xe6cf;
             </i>
             {this.getListArea()}
@@ -121,7 +130,15 @@ const mapDispatchToProps = dispatch => {
     handleMouseLeave() {
       dispatch(actionCreators.mouseLeave());
     },
-    handleChangePage(page, totalpage) {
+    handleChangePage(page, totalpage, spinIcon) {
+      // spinIcon.style.transform = "rotate(360deg)";
+      let originAngle = spinIcon.style.transform.replace(/[^0-9]/gi, "");
+      if (originAngle) {
+        originAngle = parseInt(originAngle, 10);
+      } else {
+        originAngle = 0;
+      }
+      spinIcon.style.transform = "rotate(" + (originAngle + 360) + "deg)";
       if (page < totalpage) {
         dispatch(actionCreators.changePage(page + 1));
       } else {

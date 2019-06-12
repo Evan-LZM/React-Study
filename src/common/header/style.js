@@ -98,6 +98,14 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwift = styled.span`
   float: right;
   font-size: 13px;
+  .spin {
+    display: block;
+    float: left;
+    font-size: 13px;
+    margin-right: 3px;
+    transition: all 0.3s ease-in;
+    transform-origin: center center;
+  }
 `;
 export const SearchInfoItem = styled.a`
   display: block;
@@ -126,7 +134,7 @@ export const Addition = styled.div`
 export const SearchWrapper = styled.div`
   float: left;
   position: relative;
-  .iconfont {
+  .zoom {
     position: absolute;
     right: 5px;
     bottom: 5px;
