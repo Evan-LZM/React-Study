@@ -32,10 +32,12 @@ class Header extends Component {
     } = this.props;
     const jsList = list.toJS();
     const pageList = [];
-    for (let i = page * 10; i < (page + 1) * 10; i++) {
-      pageList.push(
-        <SearchInfoItem key={jsList[i]}>{jsList[i]}</SearchInfoItem>
-      );
+    for (let i = (page - 1) * 10; i < page * 10; i++) {
+      if (i < jsList.length) {
+        pageList.push(
+          <SearchInfoItem key={jsList[i]}>{jsList[i]}</SearchInfoItem>
+        );
+      }
     }
 
     if (focused || mouseIn) {
@@ -59,7 +61,7 @@ class Header extends Component {
   }
 
   render() {
-    const { focused, list, handleInputFocus, hanldeInputBlur } = this.props;
+    const { focused, handleInputFocus, hanldeInputBlur } = this.props;
     return (
       <HeaderWrapper>
         <Logo />
@@ -123,7 +125,7 @@ const mapDispatchToProps = dispatch => {
       if (page < totalpage) {
         dispatch(actionCreators.changePage(page + 1));
       } else {
-        dispatch(actionCreators.changePage(0));
+        dispatch(actionCreators.changePage(1));
       }
     }
   };

@@ -5,7 +5,7 @@ import axios from "axios";
 const changeList = data => ({
   type: constants.CHANG_LIST,
   data: fromJS(data),
-  totalpage: Math.ceil(data.length / 6)
+  totalpage: Math.ceil(data.length / 10)
 });
 export const searchFocus = () => ({
   type: constants.SEARCH_FOCUS
@@ -22,8 +22,9 @@ export const mouseLeave = () => ({
   type: constants.MOUSE_LEAVE
 });
 
-export const changePage = () => ({
-  type: constants.CHANG_PAGE
+export const changePage = page => ({
+  type: constants.CHANG_PAGE,
+  page: page
 });
 
 export const getList = () => {

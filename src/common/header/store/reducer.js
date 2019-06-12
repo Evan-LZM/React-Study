@@ -5,14 +5,14 @@ const defaultstate = fromJS({
   focused: false,
   mouseIn: false,
   list: [],
-  page: 0,
+  page: 1,
   totalpage: 1
 });
 
 export default (state = defaultstate, action) => {
   switch (action.type) {
     case constants.CHANG_PAGE:
-      return state.set("page",);
+      return state.set("page", action.page);
     case constants.MOUSE_LEAVE:
       return state.set("mouseIn", false);
     case constants.MOUSE_ENTER:
