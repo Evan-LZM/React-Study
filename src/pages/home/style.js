@@ -15,9 +15,97 @@ export const HomeLeft = styled.div`
   }
 `;
 export const HomeRight = styled.div`
-  width: 240px;
+  width: 280px;
   float: right;
 `;
+export const AdvertisementList = styled.div`
+  margin-top: 30px;
+  width: 280px;
+  height: 208px;
+`;
+
+export const AdvertisementItem = styled.a`
+  width: 280px;
+  height: 50px;
+  margin: 0 0 6px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  .pic {
+    display: block;
+    width: 280px;
+    height: 50px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+`;
+
+export const WriterTitle = styled.span`
+  margin-top: 18px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`;
+
+export const WriterNext = styled.div`
+  margin-top: 8px;
+  line-height: 20px;
+  float: right;
+  font-size: 14px;
+  cursor: pointer;
+  color: #969696;
+  .spin {
+    display: block;
+    float: left;
+    font-size: 13px;
+    margin-right: 3px;
+    transition: all 0.3s ease-in;
+    transform-origin: center center;
+  }
+`;
+
+export const WriterList = styled.div`
+  overflow: hidden;
+  width: 280px;
+  height: 60px;
+  .pic {
+    margin-top: 5px;
+    width: 48px;
+    height: 48px;
+    float: left;
+    border-radius: 50%;
+  }
+`;
+
+export const WriterItem = styled.div`
+  float: left;
+  margin-top: 5px;
+  padding-top: 0px;
+  margin-right: 60px;
+  font-size: 14px;
+  display: block;
+  .author {
+    display: block;
+    cursor: pointer;
+  }
+  .content {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #969696;
+  }
+`;
+export const WriterConcern = styled.div`
+  float: right;
+  margin-top: 5px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 13px;
+  color: #42c02e;
+  .spin {
+    margin-right: 2px;
+  }
+`;
+
 export const TopicWrapper = styled.div`
   overflow: hidden;
   padding: 20px 0 10px 0;
