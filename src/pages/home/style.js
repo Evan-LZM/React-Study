@@ -86,7 +86,6 @@ export const WriterItem = styled.div`
   display: block;
   .author {
     display: block;
-    cursor: pointer;
   }
   .content {
     margin-top: 2px;
@@ -163,4 +162,20 @@ export const ListInfo = styled.div`
     display: block;
     color: #999;
   }
+`;
+
+export const BackTop = styled.div`
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  font-size: 2px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: block;
+  z-index: 1040;
+  box-sizing: border-box;
 `;
