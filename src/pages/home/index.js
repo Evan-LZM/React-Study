@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { HomeWrapper, HomeRight, HomeLeft, BackTop } from "./style";
 import Topic from "./components/Topic";
 import List from "./components/List";
@@ -6,7 +6,7 @@ import Recommend from "./components/Recommend";
 import Writer from "./components/Writer";
 import { connect } from "react-redux";
 import { actionCreators } from "./store";
-class Home extends Component {
+class Home extends PureComponent {
   render() {
     return (
       <HomeWrapper>

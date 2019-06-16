@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { PureComponent, Fragment } from "react";
 import {
   WriterList,
   WriterTitle,
@@ -7,7 +7,7 @@ import {
   WriterConcern
 } from "../style";
 import { connect } from "react-redux";
-class Writer extends Component {
+class Writer extends PureComponent {
   render() {
     return (
       <Fragment>

@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { PureComponent, Fragment } from "react";
 import { AdvertisementList, AdvertisementItem } from "../style";
 import { connect } from "react-redux";
-class Recommend extends Component {
+class Recommend extends PureComponent {
   render() {
     return (
       <Fragment>

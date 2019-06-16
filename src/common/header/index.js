@@ -17,6 +17,7 @@ import {
   SearchInfoList
 } from "./style";
 import { actionCreators } from "./store";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   getListArea() {
@@ -73,11 +74,15 @@ class Header extends Component {
     const { focused, handleInputFocus, hanldeInputBlur, list } = this.props;
     return (
       <HeaderWrapper>
-        <Logo />
+        <Link to={"/"}>
+          <Logo />
+        </Link>
         <Nav>
           <NavItem className="left active">Home</NavItem>
           <NavItem className="left">Download App</NavItem>
-          <NavItem className="right">Login</NavItem>
+          <Link to={"/login"}>
+            <NavItem className="right">Login</NavItem>
+          </Link>
           <NavItem className="right">
             <i className="iconfont">&#xe636;</i>
           </NavItem>

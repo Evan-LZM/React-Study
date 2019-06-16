@@ -5,16 +5,16 @@ import { Provider } from "react-redux";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/home";
 import Detail from "./pages/detail";
+import Login from "./pages/login";
 function App() {
   return (
     <Provider store={store}>
-      <div>
+      <Router>
         <Header />
-        <Router>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/detail" component={Detail} />
-        </Router>
-      </div>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/detail/:id" component={Detail} />
+        <Route exact path="/login" component={Login} />
+      </Router>
     </Provider>
   );
 }
