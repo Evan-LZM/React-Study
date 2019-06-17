@@ -17,6 +17,7 @@ import {
   SearchInfoList
 } from "./style";
 import { actionCreators } from "./store";
+import { actionCreators as loginActionCreators } from "../../pages/login/store";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
@@ -71,7 +72,14 @@ class Header extends Component {
   }
 
   render() {
-    const { focused, handleInputFocus, hanldeInputBlur, list } = this.props;
+    const {
+      focused,
+      handleInputFocus,
+      hanldeInputBlur,
+      list,
+      login,
+      handlelogout
+    } = this.props;
     return (
       <HeaderWrapper>
         <Link to={"/"}>
@@ -80,9 +88,15 @@ class Header extends Component {
         <Nav>
           <NavItem className="left active">Home</NavItem>
           <NavItem className="left">Download App</NavItem>
-          <Link to={"/login"}>
-            <NavItem className="right">Login</NavItem>
-          </Link>
+          {login ? (
+            <NavItem onClick={handlelogout} className="right">
+              Logout
+            </NavItem>
+          ) : (
+            <Link to={"/login"}>
+              <NavItem className="right">Login</NavItem>
+            </Link>
+          )}
           <NavItem className="right">
             <i className="iconfont">&#xe636;</i>
           </NavItem>
@@ -100,10 +114,12 @@ class Header extends Component {
             {this.getListArea()}
           </SearchWrapper>
           <Addition>
-            <Btn className="writing">
-              <i className="iconfont">&#xe600;</i>
-              Write Article
-            </Btn>
+            <Link to="/write">
+              <Btn className="writing">
+                <i className="iconfont">&#xe600;</i>
+                Write Article
+              </Btn>
+            </Link>
             <Btn className="reg">Register</Btn>
           </Addition>
         </Nav>
@@ -117,7 +133,8 @@ const mapStateToProps = state => {
     list: state.getIn(["headers", "list"]),
     page: state.getIn(["headers", "page"]),
     totalpage: state.getIn(["headers", "totalpage"]),
-    mouseIn: state.getIn(["headers", "mouseIn"])
+    mouseIn: state.getIn(["headers", "mouseIn"]),
+    login: state.getIn(["loginReducer", "login"])
   };
 };
 const mapDispatchToProps = dispatch => {
@@ -151,6 +168,9 @@ const mapDispatchToProps = dispatch => {
       } else {
         dispatch(actionCreators.changePage(1));
       }
+    },
+    handlelogout() {
+      dispatch(loginActionCreators.logout());
     }
   };
 };

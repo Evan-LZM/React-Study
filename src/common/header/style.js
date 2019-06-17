@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import LogoPic from "../../statics/logo.png";
+
 export const HeaderWrapper = styled.div`
+  z-index: -1;
   height: 56px;
   border-bottom: 1px solid #f0f0f0;
 `;
